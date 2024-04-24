@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Admin Profile</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="fileInput">Choose File:</label>
+              <input type="file" class="form-control-file" name="file" id="fileInput" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+      
+        <button id="logoutButton" class="btn btn-danger mt-3">Logout</button>
+    </div>
+
+    <script src="js/upload.js"></script>
+    <script>
+        // Получаем кнопку "Logout"
+        const logoutButton = document.getElementById('logoutButton');
+
+        // Добавляем обработчик события клика на кнопку "Logout"
+        logoutButton.addEventListener('click', () => {
+            // Очищаем токен из локального хранилища
+            localStorage.removeItem('token');
+
+            // Перенаправляем пользователя на страницу login.html
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
